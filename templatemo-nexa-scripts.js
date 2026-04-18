@@ -247,3 +247,20 @@ function filterGallery(category, btn) {
       }
    });
 }
+
+function envoyerWhatsApp() {
+    const nom = document.getElementById('nom').value;
+    const service = document.getElementById('service').value;
+    const message = document.getElementById('message').value;
+    
+    if (!nom || !service || !message) {
+        alert('Veuillez remplir tous les champs.');
+        return;
+    }
+    
+    const numeroWhatsApp = '+243972519906'; // Remplacez par votre numéro WhatsApp
+    const texte = `Nom: ${nom}\nService: ${service}\nMessage: ${message}`;
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texte)}`;
+    
+    window.open(url, '_blank');
+}
